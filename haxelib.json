@@ -1,0 +1,16 @@
+{
+  "name": "screenmanager",
+  "url": "",
+  "license": "MIT",
+  "tags": ["openfl","screenmanager"],
+  "description": "This is the core of the screen system. All screens are managed by this class.",
+  "version": "0.1",
+  "releasenote": "First Release",
+  "contributors": ["henrykun"],
+  "dependencies": 
+  {
+    "openfl":"",
+	"actuate":"",
+	"tilelayer":""
+  }
+}
