@@ -1,4 +1,4 @@
-package fs.analyticsmanager;
+package;
 
 import flash.net.URLLoader;
 import flash.net.URLRequest;

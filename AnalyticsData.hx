@@ -1,4 +1,4 @@
-package fs.analyticsmanager;
+package;
 
 
 class AnalyticsData
