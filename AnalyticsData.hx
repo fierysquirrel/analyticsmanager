@@ -1,5 +1,6 @@
 package;
 
+import haxe.Json;
 
 class AnalyticsData
 {
@@ -28,5 +29,10 @@ class AnalyticsData
 		}
 		
 		return data.substring(0, data.length - 1);
+	}
+	
+	public function ToJSON() : String
+	{
+		return Json.stringify(values);
 	}
 }

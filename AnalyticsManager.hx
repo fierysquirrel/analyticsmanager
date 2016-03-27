@@ -3,6 +3,7 @@ package;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
 import flash.net.URLVariables;
+import flash.net.URLRequestMethod;
 
 /**
  * ...
@@ -17,10 +18,12 @@ class AnalyticsManager
 	
 	private static var loaders : Array<AnalyticsLoader>;
 	
-	public static function InitInstance(): AnalyticsManager
+	private static var database : String;
+	
+	public static function InitInstance(database : String = ""): AnalyticsManager
 	{
 		if (instance == null)
-			instance = new AnalyticsManager();
+			instance = new AnalyticsManager(database);
 		
 		return instance;
 	}
@@ -40,20 +43,25 @@ class AnalyticsManager
 	/*
 	 * Constructor
 	 */
-	private function new() 
+	private function new(db : String = "") 
 	{
 		loaders = new Array<AnalyticsLoader>();
+		database = db;
 	}
 	
-	public static function SendDataToServer(url : String,method : String, anaData : AnalyticsData,onComplete : Dynamic -> Void = null,onIOError : Dynamic -> Void = null)
+	public static function SendDataToServer(url : String, anaData : AnalyticsData,onComplete : Dynamic -> Void = null,onIOError : Dynamic -> Void = null, db : String = "")
 	{
 		var request : URLRequest;
 		var loader : AnalyticsLoader;
 		var variables : URLVariables;
+		var databaseName : String;
 		
+		databaseName = db != "" ? db : database;
 		request = new URLRequest(url);
-		request.method = method;
-		request.data = anaData.ToString();
+		//I also decided to do every request through POST method, if needed could be change in the future
+		request.method = URLRequestMethod.POST;
+		//I decided to use only JSON, we could change this in the future
+		request.data = "database=" + databaseName + "&data=" + anaData.ToJSON();
 		trace(request.data);
 		loader = new AnalyticsLoader(request,onComplete,onIOError);
 			
