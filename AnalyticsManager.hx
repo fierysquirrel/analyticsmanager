@@ -49,7 +49,7 @@ class AnalyticsManager
 		database = db;
 	}
 	
-	public static function SendDataToServer(url : String, anaData : AnalyticsData,onComplete : Dynamic -> Void = null,onIOError : Dynamic -> Void = null, db : String = "")
+	public static function SendDataToServer(url : String,table : String, anaData : AnalyticsData,onComplete : Dynamic -> Void = null,onIOError : Dynamic -> Void = null, db : String = "")
 	{
 		var request : URLRequest;
 		var loader : AnalyticsLoader;
@@ -61,7 +61,7 @@ class AnalyticsManager
 		//I also decided to do every request through POST method, if needed could be change in the future
 		request.method = URLRequestMethod.POST;
 		//I decided to use only JSON, we could change this in the future
-		request.data = "database=" + databaseName + "&data=" + anaData.ToJSON();
+		request.data = "database=" + databaseName + "&table=" + table + "&data=" + anaData.ToJSON();
 		trace(request.data);
 		loader = new AnalyticsLoader(request,onComplete,onIOError);
 			
