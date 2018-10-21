@@ -9,8 +9,6 @@
   "contributors": ["henrykun"],
   "dependencies": 
   {
-    "openfl":"",
-	"actuate":"",
-	"tilelayer":""
+    "openfl":""
   }
 }
