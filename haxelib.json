@@ -1,12 +1,12 @@
 {
-  "name": "screenmanager",
-  "url": "",
+  "name": "Analytics Manager",
+  "url": "http://fierysquirrel.com/",
   "license": "MIT",
-  "tags": ["openfl","screenmanager"],
-  "description": "This is the core of the screen system. All screens are managed by this class.",
-  "version": "0.1",
-  "releasenote": "First Release",
-  "contributors": ["henrykun"],
+  "tags": ["openfl","analytics","statistics"],
+  "description": "system to store analytics from users. In-game data, device data, etc.",
+  "version": "1.1",
+  "releasenote": "Upgraded library to new OpenFL and Haxe",
+  "contributors": ["fierysquirrel"],
   "dependencies": 
   {
     "openfl":""
